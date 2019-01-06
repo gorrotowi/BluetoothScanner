@@ -22,12 +22,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:minWidth="30dp"
-        android:text="-70"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgBTSignalScale"
-        app:stylefont="medium" />
+        app:stylefont="medium"
+        tools:text="-70" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
