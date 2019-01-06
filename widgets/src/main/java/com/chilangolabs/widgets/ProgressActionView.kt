@@ -57,7 +57,8 @@ class ProgressActionView @JvmOverloads constructor(ctx: Context, attributeSet: A
     fun isLoading() = isLoagingProgress
 
     private fun setProgress(message: String, isLoading: Boolean = false) {
-        txtLoadData.text = message
+//        txtLoadData.text = message
+        txtLoadData.setTextAnimate(message)
         isLoagingProgress = isLoading
         return if (isLoading) {
             imgLoadData.visibility = View.INVISIBLE
