@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="lato_font">
+        <attr name="stylefont" format="enum">
+            <enum name="black" value="0" />
+            <enum name="blackItalic" value="1" />
+            <enum name="bold" value="2" />
+            <enum name="boldItalic" value="3" />
+            <enum name="hairline" value="4" />
+            <enum name="hairlineItalic" value="5" />
+            <enum name="heavy" value="6" />
+            <enum name="heavyItalic" value="7" />
+            <enum name="italic" value="8" />
+            <enum name="light" value="9" />
+            <enum name="lightItalic" value="10" />
+            <enum name="medium" value="11" />
+            <enum name="mediumItalic" value="12" />
+            <enum name="regular" value="13" />
+            <enum name="semiBold" value="14" />
+            <enum name="semiBoldItalic" value="15" />
+            <enum name="thin" value="16" />
+            <enum name="thinItalic" value="17" />
+        </attr>
+    </declare-styleable>
+</resources>

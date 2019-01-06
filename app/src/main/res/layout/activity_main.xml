@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!--TODO
+        Remove Sample views
+    -->
+
+    <include layout="@layout/item_recycler_header" />
+
+    <include
+        android:id="@+id/btd1"
+        layout="@layout/item_bluetooth_device"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" />
+
+    <include
+        android:id="@+id/btd2"
+        layout="@layout/item_bluetooth_device" />
+
+    <include
+        android:id="@+id/btd3"
+        layout="@layout/item_bluetooth_device" />
+
+    <include
+        android:id="@+id/btd4"
+        layout="@layout/item_bluetooth_device" />
+
+    <include
+        android:id="@+id/btd5"
+        layout="@layout/item_bluetooth_device" />
+
+    <include
+        android:id="@+id/btd6"
+        layout="@layout/item_bluetooth_device" />
+
+    <include
+        android:id="@+id/btd7"
+        layout="@layout/item_bluetooth_device" />
+
+</LinearLayout>
