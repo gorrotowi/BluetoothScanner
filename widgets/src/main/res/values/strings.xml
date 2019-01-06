@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Widgets</string>
     <string name="btn_save">Save</string>
+    <string name="wait_please">Wait please</string>
 </resources>
