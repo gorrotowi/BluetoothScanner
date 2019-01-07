@@ -18,10 +18,12 @@ import com.chilangolabs.core.BluetoothApi
 import com.chilangolabs.core.listeners.OnFoundBTDevice
 import com.chilangolabs.core.models.BTDevice
 import com.chilangolabs.remote.ApiFactory
+import com.chilangolabs.remote.CheckNetworkStatus
 import com.chilangolabs.remote.OnRequestListener
 import com.chilangolabs.remote.models.RequestSaveBTDevice
 import com.chilangolabs.remote.models.ResponseSaveBTDevice
 import com.chilangolabs.widgets.gone
+import com.chilangolabs.widgets.showErrorConnection
 import com.kotlinpermissions.KotlinPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -66,7 +68,11 @@ class MainActivity : AppCompatActivity() {
         adapter.setOnItemClickListener(object : OnRecyclerClickItem {
             override fun onItem(device: BTDeviceModel) {
                 Log.e("Device", device.toString())
-                uploadDevice(device)
+                if (CheckNetworkStatus.checkIsConnected(this@MainActivity)) {
+                    uploadDevice(device)
+                } else {
+                    this@MainActivity.showErrorConnection(R.string.error_connection)
+                }
             }
         })
 

@@ -1,5 +1,6 @@
 package com.chilangolabs.widgets
 
+import android.content.Context
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.StringRes
 
 val Int.dp: Int
     get() = (this / Resources.getSystem().displayMetrics.density).toInt()
@@ -23,6 +26,10 @@ fun View.invisible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+fun Context.showErrorConnection(@StringRes error: Int) {
+    Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
 }
 
 fun TextView.setTextAnimate(newText: String) {
