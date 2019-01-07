@@ -10,8 +10,8 @@ android {
         applicationId "com.chilangolabs.btscanner"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 1
-        versionName "0.1.0"
+        versionCode 2
+        versionName "0.1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -29,7 +29,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha01'
     implementation "android.arch.lifecycle:extensions:1.1.1"
-    implementation 'ru.superjob:kotlin-permissions:1.0.3'
+    implementation 'com.intentfilter:android-permissions:0.1.7'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     testImplementation 'junit:junit:4.12'
     testImplementation "android.arch.core:core-testing:1.1.1"
