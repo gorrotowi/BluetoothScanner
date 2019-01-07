@@ -24,7 +24,7 @@ import com.chilangolabs.remote.models.RequestSaveBTDevice
 import com.chilangolabs.remote.models.ResponseSaveBTDevice
 import com.chilangolabs.widgets.gone
 import com.chilangolabs.widgets.showErrorConnection
-import com.kotlinpermissions.KotlinPermissions
+import com.intentfilter.androidpermissions.PermissionManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -145,31 +145,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBT() {
         Log.e("permissions", "--------")
-        KotlinPermissions.with(this)
-            .permissions(
+        val permissionManager = PermissionManager.getInstance(this)
+        permissionManager?.checkPermissions(
+            listOf(
                 Manifest.permission.BLUETOOTH,
                 Manifest.permission.BLUETOOTH_ADMIN,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION
-            )
-            .onAccepted { permissions ->
-                permissions.map {
-                    Log.e("accepted", it)
+            ),
+            object : PermissionManager.PermissionRequestListener {
+                override fun onPermissionGranted() {
+                    BluetoothApi.instance.initialize(this@MainActivity)
                 }
-                BluetoothApi.instance.initialize(this@MainActivity)
-            }
-            .onDenied { permissions ->
-                permissions.map {
-                    Log.e("denied", it)
-                }
-                Toast.makeText(this, "Denied permissions", Toast.LENGTH_SHORT).show()
-            }
-            .onForeverDenied { permissions ->
-                permissions.map {
-                    Log.e("forever", it)
+
+                override fun onPermissionDenied() {
+                    Toast.makeText(this@MainActivity, "Denied permissions", Toast.LENGTH_SHORT).show()
                 }
 
             }
-            .ask()
+        )
     }
 }
