@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bluetooth Scanner</string>
+    <string name="device_name">Name: %1$s</string>
+    <string name="device_address">Address: %1$s</string>
 </resources>

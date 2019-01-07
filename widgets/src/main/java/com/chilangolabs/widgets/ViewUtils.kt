@@ -1,6 +1,9 @@
 package com.chilangolabs.widgets
 
 import android.content.res.Resources
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.TextView
@@ -9,6 +12,18 @@ val Int.dp: Int
     get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 val Int.px: Int
     get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
 
 fun TextView.setTextAnimate(newText: String) {
     val anim = AlphaAnimation(1f, 0f)
@@ -27,3 +42,6 @@ fun TextView.setTextAnimate(newText: String) {
     })
     this.startAnimation(anim)
 }
+
+fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View =
+    LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
