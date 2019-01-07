@@ -2,6 +2,7 @@ package com.chilangolabs.btscanner
 
 import android.Manifest
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -20,6 +21,7 @@ import com.chilangolabs.remote.ApiFactory
 import com.chilangolabs.remote.OnRequestListener
 import com.chilangolabs.remote.models.RequestSaveBTDevice
 import com.chilangolabs.remote.models.ResponseSaveBTDevice
+import com.chilangolabs.widgets.gone
 import com.kotlinpermissions.KotlinPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_see_remote) {
-            //todo startactivity
+            startActivity(Intent(this@MainActivity, RemoteDevicesActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
@@ -99,6 +101,7 @@ class MainActivity : AppCompatActivity() {
         progressLoad?.startProgress()
         BluetoothApi.instance.startScanning(object : OnFoundBTDevice {
             override fun onFoundedDevice(device: BTDevice) {
+                emptyView?.gone()
                 Log.e("BLE Device", device.toString())
                 val name = device.name ?: "Unknow Device "
                 val address = device.address ?: "Unknow Address"

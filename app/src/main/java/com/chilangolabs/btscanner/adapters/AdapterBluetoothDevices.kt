@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chilangolabs.btscanner.R
 import com.chilangolabs.btscanner.models.BTDeviceModel
 import com.chilangolabs.widgets.BluetoothSignalScale
-import com.chilangolabs.widgets.LatoTextView
 import com.chilangolabs.widgets.inflate
+import java.util.*
 
 class AdapterBluetoothDevices() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -49,6 +49,11 @@ class AdapterBluetoothDevices() : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         diffResult.dispatchUpdatesTo(this)
     }
 
+    fun clearData() {
+        data = mutableListOf()
+        notifyDataSetChanged()
+    }
+
     fun setOnItemClickListener(listener: OnRecyclerClickItem) {
         itemListener = listener
     }
@@ -61,8 +66,8 @@ class AdapterBluetoothDevices() : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     class SaveViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(device: BTDeviceModel) {
             val btSignal = itemView.findViewById<BluetoothSignalScale>(R.id.btnSignalScaleItemBTDevice)
-            val txtName = itemView.findViewById<LatoTextView>(R.id.txtItemBTDeviceName)
-            val txtAddress = itemView.findViewById<LatoTextView>(R.id.txtItemBTDeviceAddress)
+            val txtName = itemView.findViewById<TextView>(R.id.txtItemBTDeviceName)
+            val txtAddress = itemView.findViewById<TextView>(R.id.txtItemBTDeviceAddress)
             view.context?.let { ctx ->
                 txtName?.text = String.format(ctx.getString(R.string.device_name), device.name)
                 txtAddress?.text = String.format(ctx.getString(R.string.device_address), device.address)
@@ -74,17 +79,38 @@ class AdapterBluetoothDevices() : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     class RemoteViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(device: BTDeviceModel) {
             val btSignal = itemView.findViewById<BluetoothSignalScale>(R.id.btnSignalScaleItemBTDevice)
-            val txtName = itemView.findViewById<LatoTextView>(R.id.txtItemBTDeviceName)
-            val txtAddress = itemView.findViewById<LatoTextView>(R.id.txtItemBTDeviceAddress)
-            val txtCreatedDate = itemView.findViewById<LatoTextView>(R.id.txtItemBTDeviceCreateDate)
-            val txtCreatedHour = itemView.findViewById<LatoTextView>(R.id.txtItemBTDeviceCreateHour)
+            val txtName = itemView.findViewById<TextView>(R.id.txtItemBTDeviceName)
+            val txtAddress = itemView.findViewById<TextView>(R.id.txtItemBTDeviceAddress)
+            val txtCreatedDate = itemView.findViewById<TextView>(R.id.txtItemBTDeviceCreateDate)
+            val txtCreatedHour = itemView.findViewById<TextView>(R.id.txtItemBTDeviceCreateHour)
+
             view.context?.let { ctx ->
                 txtName?.text = String.format(ctx.getString(R.string.device_name), device.name)
                 txtAddress?.text = String.format(ctx.getString(R.string.device_address), device.address)
             }
             btSignal?.setBTScale(device.strength)
+            txtCreatedDate?.text = device.created_at?.getDateString()
+            txtCreatedHour?.text = device.created_at?.getDateHour()
         }
     }
+}
+
+fun Date.getDateString(): String {
+    val calendar = Calendar.getInstance()
+    calendar.time = this
+    val year = calendar.get(Calendar.YEAR)
+    val month = calendar.get(Calendar.MONTH) + 1
+    val day = calendar.get(Calendar.DAY_OF_MONTH)
+    return "$year/$month/$day"
+}
+
+fun Date.getDateHour(): String {
+    val calendar = Calendar.getInstance()
+    calendar.time = this
+    val hour = calendar.get(Calendar.HOUR_OF_DAY)
+    val minute = calendar.get(Calendar.MINUTE)
+    val seconds = calendar.get(Calendar.SECOND)
+    return "HRS $hour:$minute:$seconds"
 }
 
 interface OnRecyclerClickItem {

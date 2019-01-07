@@ -3,4 +3,7 @@
     <string name="device_name">Name: %1$s</string>
     <string name="device_address">Address: %1$s</string>
     <string name="empty_string">No devices found\ntap on Search for devices\nfor start discover</string>
+    <string name="title_remote">Saved Devices</string>
+    <string name="sort_by_date">Sort By Date</string>
+    <string name="sort_by_name">Sort By Name</string>
 </resources>
