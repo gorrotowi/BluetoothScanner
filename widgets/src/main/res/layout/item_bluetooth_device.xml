@@ -20,7 +20,7 @@
         android:id="@+id/txtItemBTDeviceName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:textColor="#222222"
@@ -35,7 +35,8 @@
         android:id="@+id/txtItemBTDeviceAddress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
         android:textColor="#888888"
@@ -54,7 +55,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="@string/btn_save"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

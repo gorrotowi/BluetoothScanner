@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/nightPrimaryColor">
 
     <com.chilangolabs.widgets.LatoTextView
         android:id="@+id/txtLoadData"
@@ -14,16 +15,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Search for devices"
-        android:textColor="#222222"
+        android:textColor="@color/primaryColor"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imgLoadData"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:stylefont="medium" />
 
     <ImageView
         android:id="@+id/imgLoadData"
-        android:layout_width="24sp"
-        android:layout_height="24sp"
+        android:layout_width="32sp"
+        android:layout_height="32sp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_refresh"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,10 +37,10 @@
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progressLoadData"
         style="?android:attr/progressBarStyleLarge"
-        android:layout_width="24sp"
-        android:layout_height="24sp"
+        android:layout_width="32sp"
+        android:layout_height="32sp"
         android:layout_marginEnd="16dp"
-        android:indeterminateTint="#0cd870"
+        android:indeterminateTint="@color/primaryColor"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

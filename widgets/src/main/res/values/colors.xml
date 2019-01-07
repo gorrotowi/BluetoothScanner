@@ -9,4 +9,5 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#282828</color>
     <color name="colorAccent">#000000</color>
+    <color name="nightPrimaryColor">#b4000000</color>
 </resources>
