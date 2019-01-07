@@ -13,6 +13,7 @@ import com.chilangolabs.remote.ApiFactory
 import com.chilangolabs.remote.CheckNetworkStatus
 import com.chilangolabs.remote.OnRequestListener
 import com.chilangolabs.remote.models.ResponseSavedBTDevice
+import com.chilangolabs.widgets.gone
 import com.chilangolabs.widgets.showErrorConnection
 import kotlinx.android.synthetic.main.activity_remote_devices.*
 import java.text.SimpleDateFormat
@@ -76,6 +77,7 @@ class RemoteDevicesActivity : AppCompatActivity() {
                     }
 
                     listDevices?.let { (rcRemote?.adapter as? AdapterBluetoothDevices)?.updateData(it) }
+                    emptyView?.gone()
 
                 }
 
